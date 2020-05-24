@@ -71,7 +71,7 @@ if (isset($_SESSION['admin'])&&isset($_REQUEST['update_prof'])){
     include 'parts/update_prof.php';
 }
 if (!isset($_SESSION['admin'])){
-    echo "please <a href='login.php'>login</a>";
+    echo "please <a href='index.php'>login</a>";
     header('refresh:3;url=index.php');
 }
 

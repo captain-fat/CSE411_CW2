@@ -1,8 +1,42 @@
 <?php
 session_start();
 include "parts/dbconnect.php";
-$fruittype = 2;
+
 $fruitName = "orange";
+
+if (isset($_REQUEST['login'])){
+    login($mysqli);
+}
+function login($mysql)
+{
+    $fNam = mysqli_real_escape_string($mysql, $_REQUEST['username']);
+    $fPas = mysqli_real_escape_string($mysql, $_REQUEST['password']);
+    if (($fNam=='')||($fPas=='')){
+        header('refresh:3;url=index.php');
+        echo "Please enter username or password";
+        exit;
+    }
+
+    $runQ = "select username, password from user where username = '$fNam' and password = '$fPas'";
+
+    if (!$result = $mysql->query($runQ)) {
+        echo "Error, handle";
+    }
+
+    $rowCount = mysqli_num_rows($result);
+    if ($rowCount == 1) {
+        $_SESSION["admin"] = true;
+        $_SESSION["username"] = $fNam;
+    } else {
+        echo "<script>
+        alert('Username or Password incorrect')
+        </script>";
+//        echo $runQ;
+        header("Refresh:0;url=index.php");
+        exit;
+    }
+    header('refresh:0;url=index.php');
+}
 
 
 //page

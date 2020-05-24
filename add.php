@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "parts/dbconnect.php";
-$fruittype = 2;
 $fruitName = "orange";
 $sport = null;
 $starttime = null;

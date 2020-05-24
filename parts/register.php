@@ -1,7 +1,7 @@
 
 <div style="border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%">
     <h1>Register</h1>
-<form action="./register_process.php" method="post">
+<form action="./register.php" method="post">
     <table style="margin-left: 30%;width: 40%;border-width: 0;margin-bottom: 15px">
         <tr>
             <td>

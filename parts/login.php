@@ -5,7 +5,7 @@ error_reporting(E_ALL^E_NOTICE^E_WARNING);
 
 <div style="border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%">
     <h1>Login</h1>
-    <form action="./login.php" method="post">
+    <form action="./index.php" method="post">
         <table style="margin-left: 30%;width: 40%;border-width: 0;margin-bottom: 15px">
             <tr>
                 <td>

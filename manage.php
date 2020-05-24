@@ -25,7 +25,7 @@ if (isset($_SESSION['admin'])){
     include "parts/manage.php";
 }
 else{
-    echo "please <a href='login.php'>login</a>";
+    echo "please <a href='index.php'>login</a>";
     header('refresh:3;url=index.php');
 }
 
