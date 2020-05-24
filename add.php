@@ -84,7 +84,7 @@ function add($mysql){
         echo $sql_add;
     }else {
         echo "Add Successfully";
-        header("refresh:5; url=manage.php");
+        header("refresh:3; url=manage.php");
     }
 }
 

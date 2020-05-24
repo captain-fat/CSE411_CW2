@@ -1,16 +1,11 @@
 <?php
-//echo "<form action=\"#\" method=\"post\">";
-//echo "   <input type=\"text\" name=\"user\" value=\"user\">";
-//echo "   <input type=\"text\" name=\"password\" value=\"password\">";
-//echo "   <button type=\"submit\" name=\"submit\">login</button>";
-//echo "</form>";
 error_reporting(E_ALL^E_NOTICE^E_WARNING);
 ?>
 
 
 <div style="border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%">
     <h1>Login</h1>
-    <form action="./login_process.php" method="post">
+    <form action="./login.php" method="post">
         <table style="margin-left: 30%;width: 40%;border-width: 0;margin-bottom: 15px">
             <tr>
                 <td>

@@ -3,7 +3,7 @@ $starttimes = explode(" ", $starttime);
 
 echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%\">";
 echo "   <h1>Add Sport Record</h1>";
-echo "<form action=\"./add.php\" method=\"get\">";
+echo "<form action=\"./add.php\" method=\"post\">";
 echo "           <input type=\"text\" name=\"id\" value='$Select_id' hidden='hidden'>";
 echo "   <table style=\"margin-left: 30%;width: 40%;border-width: 0;margin-bottom: 15px\">";
 echo "       <tr>";

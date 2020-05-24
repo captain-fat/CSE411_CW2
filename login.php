@@ -1,15 +1,39 @@
 <?php
 session_start();
 include "parts/dbconnect.php";
-//if ($_SESSION['admin']) {
-//    echo "<script>
-//     alert(\"欢迎回来！！\");
-//    </script>";
-//} else {
-//    echo "<script>
-//    alert('您还尚未登录！请返回登录~~')
-//    </script>";
-//}
+
+if (isset($_REQUEST['login'])){
+    login($mysqli);
+}
+function login($mysql)
+{
+    $fNam = $_REQUEST['username'];
+    $fPas = $_REQUEST['password'];
+    if (($fNam=='')||($fPas=='')){
+        header('refresh:3;url=login.php');
+        echo "Please enter username or password";
+        exit;
+    }
+
+    $runQ = "select username, password from user where username = '$fNam' and password = '$fPas'";
+    if (!$result = $mysql->query($runQ)) {
+        echo "Error, handle";
+    }
+
+    $rowCount = mysqli_num_rows($result);
+    if ($rowCount == 1) {
+        $_SESSION["admin"] = true;
+        $_SESSION["username"] = $fNam;
+    } else {
+        echo "<script>
+        alert('Username or Password incorrect')
+        </script>";
+        header("Refresh:0;url=login.php");
+        exit;
+    }
+    header('refresh:0;url=index.php');
+}
+
 $fruittype = 2;
 $fruitName = "orange";
 
