@@ -1,0 +1,46 @@
+<?php
+$starttimes = explode(" ", $starttime);
+
+echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%\">";
+echo "   <h1>Add Sport Record</h1>";
+echo "<form action=\"./add.php\" method=\"get\">";
+echo "           <input type=\"text\" name=\"id\" value='$Select_id' hidden='hidden'>";
+echo "   <table style=\"margin-left: 30%;width: 40%;border-width: 0;margin-bottom: 15px\">";
+echo "       <tr>";
+echo "           <td>Sport</td>";
+echo "           <td><input type=\"text\" name=\"sport\" value='$sport'></td>";
+echo "       </tr>";
+echo "       <tr>";
+echo "           <td>Duration</td>";
+echo "           <td><input type=\"text\" name=\"duration\" value='$duration'></td>";
+echo "       </tr>";
+echo "       <tr>";
+echo "           <td>StartTime</td>";
+echo "           <td><input type=\"time\" name=\"starttime1\" value='$starttimes[1]'></td>";
+echo "       </tr>";
+echo "       <tr>";
+echo "           <td>Date</td>";
+echo "           <td><input type=\"date\" name=\"starttime2\" value='$starttimes[0]'></td>";
+echo "       </tr>";
+echo "       <tr>";
+echo "           <td>avgSpeed</td>";
+echo "           <td><input type=\"text\" name=\"avgspeed\" value='$avg_speed'></td>";
+echo "       </tr>";
+echo "       <tr>";
+echo "           <td>Distance</td>";
+echo "           <td><input type=\"text\" name=\"distance\" value='$distance'></td>";
+echo "       </tr>";
+echo "       <tr>";
+echo "           <td>calories</td>";
+echo "           <td><input type=\"text\" name=\"calories\" value='$calories'></td>";
+echo "       </tr>";
+echo "       <tr>";
+echo "           <td>share (0 or 1)</td>";
+echo "           <td><input type=\"text\" name=\"share\" onkeyup=\"value=value.replace(/[^0-1]/g, '')\" maxlength=\"1\" value='$share'></td>";
+echo "       </tr>";
+echo "   </table>";
+echo "   <button style=\"margin-right: 20px\" type=\"submit\" name=\"update_confirm\">Save</button>";
+echo "   <button type=\"reset\">reset</button>";
+echo "</form>";
+echo "</div>";
+?>

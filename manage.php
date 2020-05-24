@@ -1,13 +1,6 @@
 <?php
-session_start();
 include "parts/dbconnect.php";
-
-// all the array list and vars
-//if (isset($_REQUEST['login'])) {
-//    login($mysql);
-//}
-
-
+session_start();
 $fruittype = 2;
 $fruitName = "orange";
 
@@ -25,11 +18,20 @@ echo "<link rel=\"shortcut icon\" href=\"Red_Apple.ico\"/>";
 echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';
-echo "<body id = \"$fruitName\">";
-echo "<p>Welcome</p>";
+echo"<body id = \"$fruitName\">";
 
 
-echo "</body>";
+if (isset($_SESSION['admin'])){
+    include "parts/manage.php";
+}
+else{
+    echo "please <a href='login.php'>login</a>";
+    header('refresh:3;url=index.php');
+}
+
+
+echo"</body>";
+
 
 
 echo "</html>";

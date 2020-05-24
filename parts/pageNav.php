@@ -1,9 +1,5 @@
 <?php
-// all the array list and vars
-//$titles = array('apple', 'orange', 'lemon', 'banana');
-//$images = array("images/Red_Apple", "images/Orange-Whole-&-Split", "images/Lemon-Whole-Split", "images/Bananas");
 
-// functions
 function showNav($titles){
     echo "<nav>";
 	echo "<table>";

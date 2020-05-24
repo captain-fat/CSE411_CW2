@@ -28,7 +28,7 @@ else{
 }
 
 
-include 'parts/pageBottom.php';
+
 echo"</body>";
 
 

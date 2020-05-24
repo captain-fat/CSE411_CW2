@@ -1,18 +1,6 @@
 <?php
 session_start();
 include "parts/dbconnect.php";
-//if ($_SESSION['admin']) {
-//    echo "<script>
-//     alert(\"欢迎回来！！\");
-//    </script>";
-//} else {
-//    echo "<script>
-//    alert('您还尚未登录！请返回登录~~')
-//    </script>";
-//}
-$fruittype = 2;
-$fruitName = "orange";
-
 
 //page
 echo "<!DOCTYPE html>";

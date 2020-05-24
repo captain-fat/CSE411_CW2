@@ -1,17 +1,7 @@
 <?php
-session_start();
 include "parts/dbconnect.php";
-$fruittype = 2;
-$fruitName = "orange";
-$sport = null;
-$starttime = null;
-$duration = null;
-$distance = null;
-$avg_speed = null;
-$calories = null;
-$share = null;
-$Select_id = null;
-###################################################
+session_start();
+
 if (isset($_REQUEST['delete'])){
     if (isset($_REQUEST['select_id']))
     {
@@ -21,13 +11,14 @@ if (isset($_REQUEST['delete'])){
         header("refresh:3; url=manage.php");
     }
 }
-if (isset($_REQUEST['add_confirm'])){
+if (isset($_REQUEST['add'])){
     add($mysqli);
 }
 if (isset($_REQUEST['update'])){
     if (isset($_REQUEST['select_id'])){
         echo "update";
         $records = search($mysqli);
+        update($mysqli, $records);
         $sport = $records[0];
         $starttime = $records[1];
         $duration = $records[2];
@@ -35,36 +26,17 @@ if (isset($_REQUEST['update'])){
         $avg_speed = $records[4];
         $calories = $records[5];
         $share = $records[6];
-        $Select_id = $records[7];
+
+
+
+
     }else{
         echo "Please select a record";
         header("refresh:3; url=manage.php");
     }
 }
 
-if (isset($_REQUEST['update_confirm'])){
-    update($mysqli);
-}
-
 function update($mysql){
-    $id = $_REQUEST['id'];
-    $sport = $_REQUEST['sport'];
-    $duration = $_REQUEST['duration'];
-    $starttime = $_REQUEST['starttime2']." ".$_REQUEST['starttime1'];
-    $avgSpeed = $_REQUEST['avgspeed'];
-    $calories = $_REQUEST['calories'];
-    $share = $_REQUEST['share'];
-    $distance = $_REQUEST['distance'];
-    $sql_update = "update sport_record set `sport_type` = '$sport', `start_time` = '$starttime', `duration` = '$duration',
-                    `distance` = '$distance', `average_speed` = '$avgSpeed', `calories` = '$calories', `share` = '$share'
-                    where id = '$id'";
-    if (!$result_add = $mysql->query($sql_update)) {
-        echo "Error <br>";
-        echo $sql_update;
-    }else {
-        echo "Update Successfully";
-        header("refresh:5; url=manage.php");
-    }
 
 }
 
@@ -97,7 +69,6 @@ function search($mysql){
         echo $sql;
     }
     while ($row = $result->fetch_assoc()) {
-        $id = $row['id'];
         $sport = $row['sport_type'];
         $starttime = $row['start_time'];
         $duration = $row['duration'];
@@ -105,11 +76,15 @@ function search($mysql){
         $avg_speed = $row['average_speed'];
         $calories = $row['calories'];
         $share = $row['share'];
-        $record = array($sport, $starttime, $duration, $distance, $avg_speed, $calories, $share, $id);
+        $record = array($sport, $starttime, $duration, $distance, $avg_speed, $calories, $share);
     }
     return $record;
 
 }
+
+
+
+
 
 
 
@@ -125,36 +100,5 @@ function delete($mysql){
         header("refresh:3; url=manage.php");
     }
 }
-###############################################
-
-//page
-echo "<!DOCTYPE html>";
-echo "<html lang=\"en-us\">";
-echo "<html>";
-echo "<head>";
-echo "<meta charset=\"utf-8\">";
-echo "<meta name=\"description\" content=\"A place for fruit\">";
-echo "<title>All about Sports</title>";
-echo "<link href=\"css/style1.css\", rel=\"stylesheet\" />";
-echo "<link rel=\"shortcut icon\" href=\"Red_Apple.ico\"/>";
-echo "</head>";
-include 'parts/pageTop.php';
-include 'parts/pageNav.php';
-echo"<body id = \"$fruitName\">";
-if (isset($_REQUEST['add'])){
-    include "parts/add.php";
-}
-if (isset($_REQUEST['update'])){
-    if (isset($_REQUEST['select_id'])){
-        include "parts/update.php";
-    }
-
-}
-
-
-echo"</body>";
-
-
-
-echo "</html>";
+?>
 

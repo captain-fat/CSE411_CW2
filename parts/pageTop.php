@@ -1,6 +1,8 @@
 <?php
+error_reporting(E_ALL^E_NOTICE^E_WARNING);
 ###############sql##############
 //head picture
+$username = $_SESSION['username'];
 $runsql = "SELECT * FROM sportsheader";
 if (!$result = $mysqli->query($runsql)) {
     echo "Error";
@@ -26,7 +28,6 @@ while ($row = $result_nav->fetch_assoc()) {
 //$result->free();
 //$mysqli->close();
 #####################################
-$name = "Yifan";
 $title = "Need for Sports";
 
 // functions
@@ -42,10 +43,14 @@ function displayHeadImg($titles, $images){
 //page
 
 //title part
-echo "<header>";
+echo "<header style='padding-bottom: 1%'>";
 echo "<h1>$title</h1>";
 displayHeadImg($titles, $images);
-echo "say hello to ", $name;
+echo "<div style='margin-top: 10px'>";
+if (isset($username)){
+    echo "Hello, $username, welcome";
+}
+echo "</div>";
 echo "</header>";
 
 

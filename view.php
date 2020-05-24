@@ -19,11 +19,16 @@ echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';
 echo"<body id = \"$fruitName\">";
-//content part
 
-//footer part
+if (isset($_SESSION['admin'])){
+    include "parts/view.php";
+}
+else{
+    echo "please <a href='login.php'>login</a>";
+    header('refresh:3;url=index.php');
+}
 
-include 'parts/pageBottom.php';
+
 echo"</body>";
 
 
