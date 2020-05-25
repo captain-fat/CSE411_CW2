@@ -23,6 +23,7 @@ if (isset($_REQUEST['delete'])){
 if (isset($_REQUEST['add_confirm'])){
     add($mysqli);
 }
+
 if (isset($_REQUEST['update'])){
     if (isset($_REQUEST['select_id'])){
         echo "update";
@@ -86,6 +87,9 @@ function add($mysql){
         header("refresh:3; url=manage.php");
     }
 }
+
+
+
 
 function search($mysql){
     $record = array();

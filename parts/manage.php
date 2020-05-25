@@ -2,10 +2,78 @@
 
 $username = $_SESSION['username'];
 $sql_add = "SELECT * FROM sport_record WHERE username = '$username'";
-if (!$result = $mysqli->query($sql_add)) {
-    echo "Error <br>";
-    echo $sql_add;
+
+
+if (isset($_REQUEST['sort_by_duration'])){
+    $keyword = 'duration';
+    $result = my_sort($mysqli, $keyword);
+
 }
+elseif(isset($_REQUEST['sort_by_avgspeed'])){
+    $keyword = 'average_speed';
+    $result = my_sort($mysqli, $keyword);
+}
+elseif(isset($_REQUEST['check_confirm'])){
+    $list = $_REQUEST['checks'];
+    if ($list == null){
+        echo "<script>
+        alert('Please choose option(s)')
+        </script>";
+        header ('refresh:0;url = manage.php');
+        exit;
+    }
+    $result = my_filter($mysqli, $list);
+}
+else{
+    if (!$result = $mysqli->query($sql_add)) {
+        echo "Error <br>";
+        echo $sql_add;
+    }
+}
+
+function my_sort($mysql,$keyword){
+    $username = $_SESSION['username'];
+    $sort_by = "select * from sport_record where username = '$username' order by $keyword desc";
+    if (!$result = $mysql->query($sort_by)){
+        echo "Error <br>";
+        echo $sort_by;
+    }
+    echo "<script>
+        alert('Operation Successfully')
+        </script>";
+    return $result;
+}
+
+function my_filter($mysql, $list){
+    $username = $_SESSION['username'];
+    $query_list = implode(",", $list);
+    $query_list = $query_list;
+    $sql = "select id,username,$query_list from sport_record where username = '$username'";
+    if (!$result = $mysql->query($sql)){
+        echo "Error <br>";
+        echo $sql;
+    }
+    echo "<script>
+        alert('Operation Successfully')
+        </script>";
+    return $result;
+}
+
+
+echo "<form action = 'manage.php' method = 'post'>";
+echo "<button style='float: right' type=\"submit\" name=\"sort_by_duration\">Sort by Duration↓</button>";
+echo "<button style='float: right' type=\"submit\" name=\"sort_by_avgspeed\">Sort by Average Speed↓</button>";
+echo "</form>";
+echo "<form action = 'manage.php' method = 'post'>";
+echo "<input type=\"checkbox\" name=\"checks[]\" value='sport_type'>Sport</input>";
+echo "<input  type=\"checkbox\" name=\"checks[]\" value='duration'>Duration</input>";
+echo "<input  type=\"checkbox\" name=\"checks[]\" value='distance'>Distance</input>";
+echo "<input  type=\"checkbox\" name=\"checks[]\" value='start_time'>Starttime</input>";
+echo "<input  type=\"checkbox\" name=\"checks[]\" value='average_speed'>avgSpeed</input>";
+echo "<input  type=\"checkbox\" name=\"checks[]\" value='calories'>Calories</input>";
+echo "<input  type=\"checkbox\" name=\"checks[]\" value='share'>Share</input>";
+echo "<button  type=\"submit\" name=\"check_confirm\">Filter</button>";
+echo "</form>";
 echo "<form action = './add.php' method = 'post'>";
 echo "<button style='float: right' type=\"submit\" name=\"delete\">Delete</button>";
 echo "<button style='float: right' type=\"submit\" name=\"update\">Update</button>";

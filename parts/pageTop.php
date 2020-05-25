@@ -48,7 +48,8 @@ echo "<h1>$title</h1>";
 displayHeadImg($titles, $images);
 echo "<div style='margin-top: 10px'>";
 if (isset($username)){
-    echo "Hello, $username, welcome";
+    echo "Hello, $username, welcome <br>";
+    echo "<a href='logout.php'>logout</a>";
 }
 echo "</div>";
 echo "</header>";

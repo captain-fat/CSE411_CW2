@@ -2,10 +2,77 @@
 
 $username = $_SESSION['username'];
 $sql_view = "SELECT * FROM sport_record WHERE share = 1";
-if (!$result = $mysqli->query($sql_view)) {
-    echo "Error <br>";
-    echo $sql_view;
+
+if (isset($_REQUEST['sort_by_duration'])){
+    $keyword = 'duration';
+    $result = my_sort($mysqli, $keyword);
+
 }
+elseif(isset($_REQUEST['sort_by_distance'])){
+    $keyword = 'distance';
+    $result = my_sort($mysqli, $keyword);
+}
+elseif(isset($_REQUEST['confirm'])){
+    $type =$_REQUEST['filter'];
+    $keyword = $_REQUEST['type'];
+    if ($type == 'user'){
+        $type = 'username';
+    }
+    if ($type == 'sport'){
+        $type = 'sport_type';
+    }
+    $result = my_filter($mysqli, $keyword, $type);
+}
+else{
+    if (!$result = $mysqli->query($sql_view)) {
+        echo "Error <br>";
+        echo $sql_view;
+    }
+}
+function my_sort($mysql,$keyword){
+    $sort_by = "select * from sport_record where share = '1' order by $keyword desc";
+    if (!$result = $mysql->query($sort_by)){
+        echo "Error <br>";
+        echo $sort_by;
+    }
+    echo "<script>
+        alert('Operation Successfully')
+        </script>";
+    return $result;
+}
+
+function my_filter($mysql, $keyword, $type){
+    $filter = "select * from sport_record where share = 1 and $type = '$keyword'";
+    if($keyword == null){
+        echo "<script>
+        alert('Please enter a keyword')
+        </script>";
+        header("refresh:0; url = view.php");
+        exit;
+    }
+    if (!$result = $mysql->query($filter)){
+        echo "Error <br>";
+        echo $filter;
+    }
+    echo "<script>
+        alert('Operation Successfully')
+        </script>";
+    return $result;
+}
+
+
+echo "<form style='float:left' action = 'view.php' method = 'post'>";
+echo "<input style='float:left' type='text' name='type'>";
+echo "<select style='float:left' name='filter' id = 'filter'>";
+echo "<option name = 'user' value = 'user'>User</option>";
+echo "<option name = 'sport' value = 'sport'>Sport</option>";
+echo "</select>";
+echo "<button style='float: left' type=\"submit\" name=\"confirm\">Confirm</button>";
+echo "</form>";
+echo "<form action = 'view.php' method = 'post'>";
+echo "<button style='float: right' type=\"submit\" name=\"sort_by_duration\">Sort by Duration↓</button>";
+echo "<button style='float: right' type=\"submit\" name=\"sort_by_distance\">Sort by Distance↓</button>";
+echo "</form>";
 
 echo "<table>";
 echo "   <tr>";
@@ -38,6 +105,8 @@ while ($row = $result->fetch_assoc()) {
     echo "<td>$calories</td>";
     echo "</tr>";
 }
+?>
+
 
 
 
