@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "parts/dbconnect.php";
+$fruitName = "orange";
 
 //page
 echo "<!DOCTYPE html>";
@@ -19,11 +20,11 @@ echo "<body id = \"$fruitName\">";
 
 $_SESSION=array();
 session_destroy();
-
-echo "You are now logged out";
+echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%\">";
+echo "You are now logged out <br>";
 header('refresh:3;url=index.php');
 echo "<a href = index.php>login</a>";
-
+echo "<div>";
 echo "</body>";
 
 

@@ -59,7 +59,7 @@ function my_filter($mysql, $list){
     return $result;
 }
 
-
+echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
 echo "<form action = 'manage.php' method = 'post'>";
 echo "<button style='float: right' type=\"submit\" name=\"sort_by_duration\">Sort by Duration↓</button>";
 echo "<button style='float: right' type=\"submit\" name=\"sort_by_avgspeed\">Sort by Average Speed↓</button>";
@@ -115,7 +115,7 @@ while ($row = $result->fetch_assoc()) {
     echo "</tr>";
 }
 echo "</form>";
-
+echo "</div>";
 ?>
 
 

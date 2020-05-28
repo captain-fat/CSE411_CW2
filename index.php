@@ -54,8 +54,11 @@ include 'parts/pageTop.php';
 include 'parts/pageNav.php';
 echo "<body id = \"$fruitName\">";
 if (isset($_SESSION['admin'])){
-    echo "<p>Welcome</p>";
+
+    echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%\">";
+    echo "Welcome <br>";
     echo "<a href='logout.php'>logout</a>";
+    echo "</div>";
 }
 else{
     include 'parts/login.php';

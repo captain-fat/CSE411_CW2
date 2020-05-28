@@ -12,7 +12,7 @@ error_reporting(E_ALL^E_NOTICE^E_WARNING);
                     Username
                 </td>
                 <td>
-                    <input type="text" name="username" placeholder="username">
+                    <input type="text" name="username" placeholder="username" value="admin">
                 </td>
             </tr>
             <tr>
@@ -20,7 +20,7 @@ error_reporting(E_ALL^E_NOTICE^E_WARNING);
                     Password
                 </td>
                 <td>
-                    <input type="password" name="password">
+                    <input type="password" name="password" value="admin">
                 </td>
             </tr>
         </table>

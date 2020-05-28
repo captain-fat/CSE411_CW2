@@ -69,7 +69,7 @@ function my_filter($mysql, $keyword, $type){
 
 }
 
-
+echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
 echo "<form style='float:left' action = 'view.php' method = 'post'>";
 echo "<input style='float:left' type='text' name='type'>";
 echo "<select style='float:left' name='filter' id = 'filter'>";
@@ -114,6 +114,7 @@ while ($row = $result->fetch_assoc()) {
     echo "<td>$calories</td>";
     echo "</tr>";
 }
+echo "</div>";
 
 
 

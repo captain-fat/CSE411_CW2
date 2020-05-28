@@ -1,7 +1,7 @@
 <?php
 include "parts/dbconnect.php";
 session_start();
-$fruittype = 2;
+
 $fruitName = "orange";
 
 
@@ -25,7 +25,7 @@ if (isset($_SESSION['admin'])){
     include "parts/manage.php";
 }
 else{
-    echo "please <a href='index.php'>login</a>";
+    include "parts/not_login.php";
     header('refresh:3;url=index.php');
 }
 

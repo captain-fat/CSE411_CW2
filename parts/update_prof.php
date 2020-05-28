@@ -1,5 +1,5 @@
 <?php
-
+echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
 echo "<form action=\"./profile.php\" method=\"post\">";
 echo "   <table>";
 echo "       <tr>";
@@ -24,4 +24,4 @@ echo "   <button type=\"submit\" name=\"update_prof_confirm\">Save</button>";
 echo "   <button type=\"reset\">Reset</button>";
 echo "   </div>";
 echo "</form>";
-
+echo "</div>";

@@ -8,7 +8,7 @@ if (!$result = $mysqli->query($sql_message)) {
 }
 
 
-
+echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
 echo "<form action = './message.php' method = 'post'>";
 echo "<button style='float: right' type=\"submit\" name=\"delete\">Delete</button>";
 echo "<button style='float: right' type=\"submit\" name=\"add\">Add</button>";
@@ -29,7 +29,7 @@ while ($row = $result->fetch_assoc()) {
     echo "</tr>";
 }
 echo "</form>";
-
+echo "</div>";
 ?>
 
 

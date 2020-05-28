@@ -30,6 +30,7 @@ while ($row = $result->fetch_assoc()) {
     $full_name = $row['full_name'];
     $prof = $row['profile'];
 }
+echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
 echo "<table>";
 echo "   <tr>";
 echo "       <th>Username</th>";
@@ -93,6 +94,6 @@ echo "<table>";
         echo "</tr>";
     }
     echo "</form>";
-
+echo "</div>";
 
 

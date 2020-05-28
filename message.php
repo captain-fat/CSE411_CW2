@@ -85,7 +85,7 @@ if (isset($_SESSION['admin']) && isset($_REQUEST['add'])){
     include 'parts/add_message.php';
 }
 if (!isset($_SESSION['admin'])){
-    echo "please <a href='index.php'>login</a>";
+    include "parts/not_login.php";
     header('refresh:3;url=index.php');
 }
 
