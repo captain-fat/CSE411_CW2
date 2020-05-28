@@ -54,10 +54,19 @@ function my_filter($mysql, $keyword, $type){
         echo "Error <br>";
         echo $filter;
     }
-    echo "<script>
+    $rowCount = mysqli_num_rows($result);
+    if ($rowCount != 0){
+        echo "<script>
         alert('Operation Successfully')
         </script>";
-    return $result;
+        return $result;
+    }else{
+        echo "<script>
+        alert('Wrong Keywords!')
+        </script>";
+        header("refresh:0;url=view.php");
+    }
+
 }
 
 
@@ -105,7 +114,7 @@ while ($row = $result->fetch_assoc()) {
     echo "<td>$calories</td>";
     echo "</tr>";
 }
-?>
+
 
 
 
