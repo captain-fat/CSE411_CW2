@@ -70,20 +70,20 @@ function my_filter($mysql, $keyword, $type){
 }
 
 echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
-echo "<form style='float:left' action = 'view.php' method = 'post'>";
-echo "<input style='float:left' type='text' name='type'>";
-echo "<select style='float:left' name='filter' id = 'filter'>";
+echo "<form style='text-align: right; margin-right: 5px' action = 'view.php' method = 'post'>";
+echo "<input style='text-align: right; margin-right: 5px' type='text' name='type'>";
+echo "<select style='text-align: right; margin-right: 5px' name='filter' id = 'filter'>";
 echo "<option name = 'user' value = 'user'>User</option>";
 echo "<option name = 'sport' value = 'sport'>Sport</option>";
 echo "</select>";
-echo "<button style='float: left' type=\"submit\" name=\"confirm\">Confirm</button>";
+echo "<button class='btn' style='text-align: right' type=\"submit\" name=\"confirm\">Confirm</button>";
 echo "</form>";
-echo "<form action = 'view.php' method = 'post'>";
-echo "<button style='float: right' type=\"submit\" name=\"sort_by_duration\">Sort by Duration↓</button>";
-echo "<button style='float: right' type=\"submit\" name=\"sort_by_distance\">Sort by Distance↓</button>";
+echo "<form action = 'view.php' method = 'post' style='text-align: right; margin-top: 5px'>";
+echo "<button class='btn'  style='margin-right: 5px' type=\"submit\" name=\"sort_by_duration\">Sort by Duration↓</button>";
+echo "<button class='btn'  type=\"submit\" name=\"sort_by_distance\">Sort by Distance↓</button>";
 echo "</form>";
 
-echo "<table>";
+echo "<table style='margin-top: 5px'>";
 echo "   <tr>";
 echo "       <th>ID Num</th>";
 echo "       <th>User</th>";

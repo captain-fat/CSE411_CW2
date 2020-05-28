@@ -36,8 +36,8 @@
             <td><input type="text" name="share" onkeyup="value=value.replace(/[^0-1]/g, '')" maxlength="1"></td>
         </tr>
     </table>
-    <button style="margin-right: 20px" type="submit" name="add_confirm">Save</button>
-    <button type="reset">reset</button>
+    <button class='btn' style="margin-right: 20px" type="submit" name="add_confirm">Save</button>
+    <button class='btn' type="reset">reset</button>
 
 </form>
 </div>

@@ -139,7 +139,7 @@ echo "<meta charset=\"utf-8\">";
 echo "<meta name=\"description\" content=\"A place for fruit\">";
 echo "<title>All about Sports</title>";
 echo "<link href=\"css/style1.css\", rel=\"stylesheet\" />";
-echo "<link rel=\"shortcut icon\" href=\"Red_Apple.ico\"/>";
+echo "<link rel=\"shortcut icon\" href=\"images/favicon.ico\"/>";
 echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';

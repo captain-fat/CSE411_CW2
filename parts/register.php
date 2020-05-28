@@ -20,8 +20,8 @@
             </td>
         </tr>
     </table>
-    <button style="margin-right: 20px" type="submit" name="register">submit</button>
-    <button type="reset">reset</button>
+    <button class="btn" style="margin-right: 20px" type="submit" name="register">submit</button>
+    <button class = "btn" type="reset">reset</button>
 
 </form>
 </div>

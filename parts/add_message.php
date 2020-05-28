@@ -11,8 +11,8 @@
             <td><input type="text" name="message"></td>
         </tr>
     </table>
-    <button type="submit" name="add_confirm">Save</button>
-    <button type="reset">reset</button>
+    <button class="btn" type="submit" name="add_confirm">Save</button>
+    <button class="btn"  type="reset">reset</button>
 
 </form>
 </div>

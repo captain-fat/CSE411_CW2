@@ -55,8 +55,8 @@ echo "   </tr>";
 echo "</table>";
 
 
-echo "<form action=\"./profile.php\" method=\"post\">";
-echo "<button type=\"submit\" name=\"update_prof\">Update</button>";
+echo "<form action=\"./profile.php\" method=\"post\" style='padding-top: 1%; padding-bottom: 1%; text-align: right'>";
+echo "<button class='btn' type=\"submit\" name=\"update_prof\">Update</button>";
 echo "</form>";
 
 echo "<table>";

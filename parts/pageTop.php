@@ -43,12 +43,14 @@ function displayHeadImg($titles, $images){
 //page
 
 //title part
-echo "<header style='padding-bottom: 1%'>";
+echo "<header style='padding-bottom: 2%'>";
+echo "<div style='padding-top: .5%'>";
 echo "<h1>$title</h1>";
+echo "</div>";
 displayHeadImg($titles, $images);
 echo "<div style='margin-top: 10px'>";
 if (isset($username)){
-    echo "Hello, $username, welcome <br>";
+    echo "Hello, $username<br>";
     echo "<a href='logout.php'>logout</a>";
 }
 echo "</div>";

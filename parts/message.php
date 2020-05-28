@@ -9,10 +9,10 @@ if (!$result = $mysqli->query($sql_message)) {
 
 
 echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
-echo "<form action = './message.php' method = 'post'>";
-echo "<button style='float: right' type=\"submit\" name=\"delete\">Delete</button>";
-echo "<button style='float: right' type=\"submit\" name=\"add\">Add</button>";
-echo "<table>";
+echo "<form action = './message.php' method = 'post' style='text-align: right'>";
+echo "<button class='btn' style='margin-right: 5px' type=\"submit\" name=\"add\">Add</button>";
+echo "<button class='btn' type=\"submit\" name=\"delete\">Delete</button>";
+echo "<table style='margin-top: 5px'>";
 echo "   <tr>";
 echo "       <th>Sender</th>";
 echo "       <th>Message</th>";
