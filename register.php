@@ -37,11 +37,14 @@ function register($mysql)
             echo $sql_insert;
         }
 
-        echo "Register successfully <br>";
-        echo "Username = $fNam <br>";
-        echo "Password = $fPas ";
+//        echo "Register successfully <br>";
+//        echo "Username = $fNam <br>";
+//        echo "Password = $fPas ";
+        echo "<script>
+        alert('Register successfullyd \\n Username = $fNam \\n Password = $fPas')
+        </script>";
 
-        header('refresh:3;url=index.php');
+        header('refresh:0;url=index.php');
 
     }
 

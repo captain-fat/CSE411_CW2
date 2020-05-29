@@ -37,8 +37,10 @@ if (isset($_REQUEST['update'])){
         $share = $records[6];
         $Select_id = $records[7];
     }else{
-        echo "Please select a record";
-        header("refresh:3; url=manage.php");
+        echo "<script>
+        alert('Please select a record')
+        </script>";
+        header("refresh:0; url=manage.php");
     }
 }
 
@@ -62,8 +64,10 @@ function update($mysql){
         echo "Error <br>";
         echo $sql_update;
     }else {
-        echo "Update Successfully";
-        header("refresh:5; url=manage.php");
+        echo "<script>
+        alert('Update Successfully')
+        </script>";
+        header("refresh:0; url=manage.php");
     }
 
 }
@@ -83,8 +87,10 @@ function add($mysql){
         echo "Error <br>";
         echo $sql_add;
     }else {
-        echo "Add Successfully";
-        header("refresh:3; url=manage.php");
+        echo "<script>
+        alert('Add Successfully')
+        </script>";
+        header("refresh:0; url=manage.php");
     }
 }
 

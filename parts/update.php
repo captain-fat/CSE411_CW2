@@ -39,8 +39,8 @@ echo "           <td>share (0 or 1)</td>";
 echo "           <td><input type=\"text\" name=\"share\" onkeyup=\"value=value.replace(/[^0-1]/g, '')\" maxlength=\"1\" value='$share'></td>";
 echo "       </tr>";
 echo "   </table>";
-echo "   <button style=\"margin-right: 20px\" type=\"submit\" name=\"update_confirm\">Save</button>";
-echo "   <button type=\"reset\">reset</button>";
+echo "   <button class='btn' style=\"margin-right: 20px\" type=\"submit\" name=\"update_confirm\">Save</button>";
+echo "   <button class='btn' type=\"reset\">reset</button>";
 echo "</form>";
 echo "</div>";
 ?>
