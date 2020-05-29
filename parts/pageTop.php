@@ -28,7 +28,7 @@ while ($row = $result_nav->fetch_assoc()) {
 //$result->free();
 //$mysqli->close();
 #####################################
-$title = "Need for Sports";
+$title = "Need for Sports"; 
 
 // functions
 function displayHeadImg($titles, $images){

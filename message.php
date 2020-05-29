@@ -24,7 +24,9 @@ function delete($mysql){
         echo "Error <br>";
         echo $sql_delete;
     }else {
-        echo "Delete Successfully";
+        echo "<script>
+        alert('Delete Successfully')
+        </script>";
         header("refresh:3; url=message.php");
     }
 }
