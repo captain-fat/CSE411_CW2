@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1
--- 生成日期： 2020-06-03 03:53:54
+-- 生成日期： 2020-06-03 14:53:08
 -- 服务器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.3
 
@@ -57,7 +57,8 @@ INSERT INTO `message` (`id`, `from_user`, `to_user`, `message`) VALUES
 (35, 'test123', 'test123', 'asdfasdf'),
 (37, 'test123', 'test123', 'test111'),
 (38, 'admin', 'admin', 'admintest'),
-(39, 'admin', 'admin', 'test');
+(39, 'admin', 'admin', 'test'),
+(40, 'admin_test', 'admin', 'test_by_admin_test');
 
 -- --------------------------------------------------------
 
@@ -116,8 +117,8 @@ CREATE TABLE `sport_record` (
   `start_time` datetime DEFAULT NULL,
   `duration` int(200) DEFAULT NULL,
   `distance` int(200) DEFAULT NULL,
-  `average_speed` varchar(200) DEFAULT NULL,
-  `calories` varchar(200) DEFAULT NULL,
+  `average_speed` int(200) DEFAULT NULL,
+  `calories` int(200) DEFAULT NULL,
   `share` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -126,20 +127,20 @@ CREATE TABLE `sport_record` (
 --
 
 INSERT INTO `sport_record` (`id`, `username`, `sport_type`, `start_time`, `duration`, `distance`, `average_speed`, `calories`, `share`) VALUES
-(9, 'admin', 'test111112', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(12, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(13, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(15, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(18, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(19, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(20, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(28, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, '10', '10', 1),
-(29, 'asuka', 'test111ee', '2021-04-26 06:53:00', 20, 15, '20', '86', 1),
-(30, 'test123', 'test123', '2020-01-01 01:00:00', 10, 56, '12', '89', 1),
-(31, 'admin', 'test', '2021-06-26 11:22:00', 50, 564, '105656', '89654', 1),
-(32, 'admin', 'football', '2020-01-01 01:00:00', 55, 23, '50', '456', 0),
-(33, 'admin', 'basketball', '2020-01-01 01:00:00', 45, 54, '12', '87', 1),
-(34, 'admin', 'test', '2020-01-01 01:00:00', 20, 456, '123', '78', 1);
+(9, 'admin', 'test111112', '2020-05-26 00:03:00', 20, 10, 10, 10, 1),
+(15, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, 10, 10, 1),
+(18, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, 10, 10, 1),
+(19, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, 10, 10, 1),
+(20, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, 10, 10, 1),
+(28, 'admin', 'test1', '2020-05-26 00:03:00', 20, 10, 10, 10, 1),
+(29, 'asuka', 'test111ee', '2021-04-26 06:53:00', 20, 15, 20, 86, 1),
+(30, 'test123', 'test123', '2020-01-01 01:00:00', 10, 56, 12, 89, 1),
+(31, 'admin', 'test', '2021-06-26 11:22:00', 50, 564, 105656, 89654, 1),
+(32, 'admin', 'football', '2020-01-01 01:00:00', 55, 23, 50, 456, 0),
+(33, 'admin', 'basketball', '2020-01-01 01:00:00', 45, 54, 12, 87, 1),
+(34, 'admin', 'test', '2020-01-01 01:00:00', 20, 456, 123, 78, 1),
+(36, 'admin', 'special', '2020-01-01 01:00:00', 12, 2356, 23, 874, 1),
+(37, 'admin_test', 'admin_test_basketball', '2020-01-01 01:00:00', 123, 123, 23, 23, 1);
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `full_name`, `profile`) VALUES
 (12, 'test123', '123', NULL, NULL),
 (13, 'adminadmin', 'admin', NULL, NULL),
 (14, 'testtest', '123123', NULL, NULL),
-(15, 'ji', 'ji', NULL, NULL);
+(15, 'ji', 'ji', NULL, NULL),
+(16, 'admin_test', 'admin', 'admin_test', 'admin_test');
 
 --
 -- 转储表的索引
@@ -209,7 +211,7 @@ ALTER TABLE `user`
 -- 使用表AUTO_INCREMENT `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- 使用表AUTO_INCREMENT `sportsheader`
@@ -227,13 +229,13 @@ ALTER TABLE `sportsnav`
 -- 使用表AUTO_INCREMENT `sport_record`
 --
 ALTER TABLE `sport_record`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
