@@ -3,35 +3,33 @@
 $username = $_SESSION['username'];
 $sql_view = "SELECT * FROM sport_record WHERE share = 1";
 
-if (isset($_REQUEST['sort_by_duration'])){
+if (isset($_REQUEST['sort_by_duration'])) {
     $keyword = 'duration';
     $result = my_sort($mysqli, $keyword);
 
-}
-elseif(isset($_REQUEST['sort_by_distance'])){
+} elseif (isset($_REQUEST['sort_by_distance'])) {
     $keyword = 'distance';
     $result = my_sort($mysqli, $keyword);
-}
-elseif(isset($_REQUEST['confirm'])){
-    $type =$_REQUEST['filter'];
+} elseif (isset($_REQUEST['confirm'])) {
+    $type = $_REQUEST['filter'];
     $keyword = $_REQUEST['type'];
-    if ($type == 'user'){
+    if ($type == 'user') {
         $type = 'username';
     }
-    if ($type == 'sport'){
+    if ($type == 'sport') {
         $type = 'sport_type';
     }
     $result = my_filter($mysqli, $keyword, $type);
-}
-else{
+} else {
     if (!$result = $mysqli->query($sql_view)) {
         echo "Error <br>";
         echo $sql_view;
     }
 }
-function my_sort($mysql,$keyword){
+function my_sort($mysql, $keyword)
+{
     $sort_by = "select * from sport_record where share = '1' order by $keyword desc";
-    if (!$result = $mysql->query($sort_by)){
+    if (!$result = $mysql->query($sort_by)) {
         echo "Error <br>";
         echo $sort_by;
     }
@@ -41,26 +39,27 @@ function my_sort($mysql,$keyword){
     return $result;
 }
 
-function my_filter($mysql, $keyword, $type){
+function my_filter($mysql, $keyword, $type)
+{
     $filter = "select * from sport_record where share = 1 and $type = '$keyword'";
-    if($keyword == null){
+    if ($keyword == null) {
         echo "<script>
         alert('Please enter a keyword')
         </script>";
         header("refresh:0; url = view.php");
         exit;
     }
-    if (!$result = $mysql->query($filter)){
+    if (!$result = $mysql->query($filter)) {
         echo "Error <br>";
         echo $filter;
     }
     $rowCount = mysqli_num_rows($result);
-    if ($rowCount != 0){
+    if ($rowCount != 0) {
         echo "<script>
         alert('Operation Successfully')
         </script>";
         return $result;
-    }else{
+    } else {
         echo "<script>
         alert('Wrong Keywords!')
         </script>";

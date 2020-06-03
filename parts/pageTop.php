@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL^E_NOTICE^E_WARNING);
+error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 ###############sql##############
 //head picture
 $username = $_SESSION['username'];
@@ -28,13 +28,14 @@ while ($row = $result_nav->fetch_assoc()) {
 //$result->free();
 //$mysqli->close();
 #####################################
-$title = "Need for Sports"; 
+$title = "Need for Sports";
 
 // functions
-function displayHeadImg($titles, $images){
+function displayHeadImg($titles, $images)
+{
     echo "<section id = \"headsection\">";
-    for ($i=0; $i < count($titles); $i++) {
-        echo"<img class = \"Imgtest_title\" src = \"$images[$i].png\">";
+    for ($i = 0; $i < count($titles); $i++) {
+        echo "<img class = \"Imgtest_title\" src = \"$images[$i].png\">";
     }
     echo "</section>";
 }
@@ -49,7 +50,7 @@ echo "<h1>$title</h1>";
 echo "</div>";
 displayHeadImg($titles, $images);
 echo "<div style='margin-top: 10px'>";
-if (isset($username)){
+if (isset($username)) {
     echo "Hello, $username<br>";
     echo "<a href='logout.php'>logout</a>";
 }

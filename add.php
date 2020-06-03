@@ -11,21 +11,20 @@ $calories = null;
 $share = null;
 $Select_id = null;
 ###################################################
-if (isset($_REQUEST['delete'])){
-    if (isset($_REQUEST['select_id']))
-    {
+if (isset($_REQUEST['delete'])) {
+    if (isset($_REQUEST['select_id'])) {
         delete($mysqli);
-    }else{
+    } else {
         echo "Please select a record";
         header("refresh:3; url=manage.php");
     }
 }
-if (isset($_REQUEST['add_confirm'])){
+if (isset($_REQUEST['add_confirm'])) {
     add($mysqli);
 }
 
-if (isset($_REQUEST['update'])){
-    if (isset($_REQUEST['select_id'])){
+if (isset($_REQUEST['update'])) {
+    if (isset($_REQUEST['select_id'])) {
         echo "update";
         $records = search($mysqli);
         $sport = $records[0];
@@ -36,7 +35,7 @@ if (isset($_REQUEST['update'])){
         $calories = $records[5];
         $share = $records[6];
         $Select_id = $records[7];
-    }else{
+    } else {
         echo "<script>
         alert('Please select a record')
         </script>";
@@ -44,15 +43,16 @@ if (isset($_REQUEST['update'])){
     }
 }
 
-if (isset($_REQUEST['update_confirm'])){
+if (isset($_REQUEST['update_confirm'])) {
     update($mysqli);
 }
 
-function update($mysql){
+function update($mysql)
+{
     $id = $_REQUEST['id'];
     $sport = $_REQUEST['sport'];
     $duration = $_REQUEST['duration'];
-    $starttime = $_REQUEST['starttime2']." ".$_REQUEST['starttime1'];
+    $starttime = $_REQUEST['starttime2'] . " " . $_REQUEST['starttime1'];
     $avgSpeed = $_REQUEST['avgspeed'];
     $calories = $_REQUEST['calories'];
     $share = $_REQUEST['share'];
@@ -63,7 +63,7 @@ function update($mysql){
     if (!$result_add = $mysql->query($sql_update)) {
         echo "Error <br>";
         echo $sql_update;
-    }else {
+    } else {
         echo "<script>
         alert('Update Successfully')
         </script>";
@@ -72,11 +72,12 @@ function update($mysql){
 
 }
 
-function add($mysql){
+function add($mysql)
+{
     $username = $_SESSION['username'];
     $sport = $_REQUEST['sport'];
     $duration = $_REQUEST['duration'];
-    $starttime = $_REQUEST['starttime2']." ".$_REQUEST['starttime1'];
+    $starttime = $_REQUEST['starttime2'] . " " . $_REQUEST['starttime1'];
     $avgSpeed = $_REQUEST['avgspeed'];
     $calories = $_REQUEST['calories'];
     $share = $_REQUEST['share'];
@@ -86,7 +87,7 @@ function add($mysql){
     if (!$result_add = $mysql->query($sql_add)) {
         echo "Error <br>";
         echo $sql_add;
-    }else {
+    } else {
         echo "<script>
         alert('Add Successfully')
         </script>";
@@ -95,13 +96,12 @@ function add($mysql){
 }
 
 
-
-
-function search($mysql){
+function search($mysql)
+{
     $record = array();
     $id = $_REQUEST['select_id'];
     $sql = "select * from sport_record where id = '$id'";
-    if (!$result = $mysql->query($sql)){
+    if (!$result = $mysql->query($sql)) {
         echo "Error <br>";
         echo $sql;
     }
@@ -121,19 +121,21 @@ function search($mysql){
 }
 
 
-
-
-function delete($mysql){
+function delete($mysql)
+{
     $delete_id = $_REQUEST['select_id'];
     $sql_delete = "delete from sport_record where id = '$delete_id'";
     if (!$result_delete = $mysql->query($sql_delete)) {
         echo "Error <br>";
         echo $sql_delete;
-    }else {
-        echo "Delete Successfully";
-        header("refresh:3; url=manage.php");
+    } else {
+        echo "<script>
+        alert('Delete Successfully')
+        </script>";
+        header("refresh:0; url=manage.php");
     }
 }
+
 ###############################################
 
 //page
@@ -149,20 +151,19 @@ echo "<link rel=\"shortcut icon\" href=\"images/favicon.ico\"/>";
 echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';
-echo"<body id = \"$fruitName\">";
-if (isset($_REQUEST['add'])){
+echo "<body id = \"$fruitName\">";
+if (isset($_REQUEST['add'])) {
     include "parts/add.php";
 }
-if (isset($_REQUEST['update'])){
-    if (isset($_REQUEST['select_id'])){
+if (isset($_REQUEST['update'])) {
+    if (isset($_REQUEST['select_id'])) {
         include "parts/update.php";
     }
 
 }
 
 
-echo"</body>";
-
+echo "</body>";
 
 
 echo "</html>";

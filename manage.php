@@ -18,20 +18,18 @@ echo "<link rel=\"shortcut icon\" href=\"images/favicon.ico\"/>";
 echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';
-echo"<body id = \"$fruitName\">";
+echo "<body id = \"$fruitName\">";
 
 
-if (isset($_SESSION['admin'])){
+if (isset($_SESSION['admin'])) {
     include "parts/manage.php";
-}
-else{
+} else {
     include "parts/not_login.php";
     header('refresh:3;url=index.php');
 }
 
 
-echo"</body>";
-
+echo "</body>";
 
 
 echo "</html>";

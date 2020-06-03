@@ -4,26 +4,28 @@ include "parts/dbconnect.php";
 $fruitName = "orange";
 
 
-if (isset($_REQUEST['delete'])){
-    if (isset($_REQUEST['select_id']))
-    {
+if (isset($_REQUEST['delete'])) {
+    if (isset($_REQUEST['select_id'])) {
         delete($mysqli);
-    }else{
-        echo "Please select a record";
+    } else {
+        echo "<script>
+        alert('Please select a record')
+        </script>";
         header("refresh:3; url=message.php");
     }
 }
-if (isset($_REQUEST['add_confirm'])){
+if (isset($_REQUEST['add_confirm'])) {
     add_message($mysqli);
 }
 
-function delete($mysql){
+function delete($mysql)
+{
     $delete_id = $_REQUEST['select_id'];
     $sql_delete = "delete from message where id = '$delete_id'";
     if (!$result_delete = $mysql->query($sql_delete)) {
         echo "Error <br>";
         echo $sql_delete;
-    }else {
+    } else {
         echo "<script>
         alert('Delete Successfully')
         </script>";
@@ -31,7 +33,8 @@ function delete($mysql){
     }
 }
 
-function add_message($mysql){
+function add_message($mysql)
+{
     $username = $_SESSION['username'];
     $receiver = $_REQUEST['receiver'];
     $message = $_REQUEST['message'];
@@ -41,7 +44,7 @@ function add_message($mysql){
         echo $sql_search;
     }
     $rowCount = mysqli_num_rows($result_search);
-    if ($rowCount == 0){
+    if ($rowCount == 0) {
         echo "<script>
         alert('Please check the username you want to send message to')
         </script>";
@@ -64,8 +67,6 @@ function add_message($mysql){
 }
 
 
-
-
 //page
 echo "<!DOCTYPE html>";
 echo "<html lang=\"en-us\">";
@@ -79,22 +80,20 @@ echo "<link rel=\"shortcut icon\" href=\"images/favicon.ico\"/>";
 echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';
-echo"<body id = \"$fruitName\">";
-if (isset($_SESSION['admin']) && !isset($_REQUEST['add'])){
+echo "<body id = \"$fruitName\">";
+if (isset($_SESSION['admin']) && !isset($_REQUEST['add'])) {
     include 'parts/message.php';
 }
-if (isset($_SESSION['admin']) && isset($_REQUEST['add'])){
+if (isset($_SESSION['admin']) && isset($_REQUEST['add'])) {
     include 'parts/add_message.php';
 }
-if (!isset($_SESSION['admin'])){
+if (!isset($_SESSION['admin'])) {
     include "parts/not_login.php";
     header('refresh:3;url=index.php');
 }
 
 
-
-echo"</body>";
-
+echo "</body>";
 
 
 echo "</html>";

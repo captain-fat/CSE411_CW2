@@ -8,8 +8,8 @@ if (isset($_REQUEST['sort_by_duration'])) {
     $keyword = 'duration';
     $result = my_sort($mysqli, $keyword);
 
-} elseif (isset($_REQUEST['sort_by_avgspeed'])) {
-    $keyword = 'average_speed';
+} elseif (isset($_REQUEST['sort_by_distance'])) {
+    $keyword = 'distance';
     $result = my_sort($mysqli, $keyword);
 } elseif (isset($_REQUEST['check_confirm'])) {
     $list = $_REQUEST['checks'];
@@ -62,7 +62,7 @@ echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 
 echo "<form action = 'manage.php' method = 'post'>";
 echo "<div style='text-align: right'>";
 echo "<button class='btn'  type=\"submit\" name=\"sort_by_duration\">Sort by Duration↓</button>";
-echo "<button class='btn' style='margin-left: 5px' type=\"submit\" name=\"sort_by_avgspeed\">Sort by Average Speed↓</button>";
+echo "<button class='btn' style='margin-left: 5px' type=\"submit\" name=\"sort_by_distance\">Sort by Distance↓</button>";
 echo "</div>";
 echo "</form>";
 echo "<form action = 'manage.php' method = 'post'style='text-align: left'>";
@@ -119,7 +119,7 @@ while ($row = $result->fetch_assoc()) {
 }
 echo "</form>";
 echo "</div>";
-?>
+
 
 
 

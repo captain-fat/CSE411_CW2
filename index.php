@@ -4,14 +4,14 @@ include "parts/dbconnect.php";
 
 $fruitName = "orange";
 
-if (isset($_REQUEST['login'])){
+if (isset($_REQUEST['login'])) {
     login($mysqli);
 }
 function login($mysql)
 {
     $fNam = mysqli_real_escape_string($mysql, $_REQUEST['username']);
     $fPas = mysqli_real_escape_string($mysql, $_REQUEST['password']);
-    if (($fNam=='')||($fPas=='')){
+    if (($fNam == '') || ($fPas == '')) {
         header('refresh:3;url=index.php');
         echo "Please enter username or password";
         exit;
@@ -53,14 +53,13 @@ echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';
 echo "<body id = \"$fruitName\">";
-if (isset($_SESSION['admin'])){
+if (isset($_SESSION['admin'])) {
 
     echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%\">";
     echo "Welcome <br>";
     echo "<a href='logout.php'>logout</a>";
     echo "</div>";
-}
-else{
+} else {
     include 'parts/login.php';
 }
 

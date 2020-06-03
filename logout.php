@@ -18,7 +18,7 @@ include 'parts/pageTop.php';
 include 'parts/pageNav.php';
 echo "<body id = \"$fruitName\">";
 
-$_SESSION=array();
+$_SESSION = array();
 session_destroy();
 echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-top: 2%;padding-bottom: 5%\">";
 echo "You are now logged out <br>";

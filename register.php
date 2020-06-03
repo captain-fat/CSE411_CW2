@@ -3,16 +3,18 @@ session_start();
 include "parts/dbconnect.php";
 $fruitName = "orange";
 
-if (isset($_REQUEST['register'])){
+if (isset($_REQUEST['register'])) {
     register($mysqli);
 }
 function register($mysql)
 {
     $fNam = $_REQUEST['username'];
     $fPas = $_REQUEST['password'];
-    if (($fNam=='')||($fPas=='')){
-        echo "Please enter username or password";
-        header('refresh:3;url=register.php');
+    if (($fNam == '') || ($fPas == '')) {
+        echo "<script>
+        alert('Please enter username or password')
+        </script>";
+        header('refresh:0;url=register.php');
         exit;
     }
 
@@ -28,8 +30,7 @@ function register($mysql)
 //
 //        echo "please use another username";
 //        header('refresh:5;url=register.php');
-    }
-    else{
+    } else {
         $sql_insert = "insert into user (`username`,`password`) values ('$fNam','$fPas')";
 
         if (!$result_insert = $mysql->query($sql_insert)) {
@@ -65,12 +66,11 @@ echo "<link rel=\"shortcut icon\" href=\"images/favicon.ico\"/>";
 echo "</head>";
 include 'parts/pageTop.php';
 include 'parts/pageNav.php';
-echo"<body id = \"$fruitName\">";
+echo "<body id = \"$fruitName\">";
 include "parts/register.php";
 
 
-echo"</body>";
-
+echo "</body>";
 
 
 echo "</html>";
