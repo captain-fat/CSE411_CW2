@@ -7,7 +7,7 @@
                     Username
                 </td>
                 <td>
-                    <input type="text" name="username" placeholder="username">
+                    <input type="text" name="username" placeholder="username" onkeyup="value=value.replace(/[^0-9a-zA-Z_.]/g,'')" maxlength="50">
                 </td>
             </tr>
             <tr>

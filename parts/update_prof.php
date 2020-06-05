@@ -8,7 +8,7 @@ echo "           <td>$username</td>";
 echo "       </tr>";
 echo "       <tr>";
 echo "           <th>Password</th>";
-echo "           <td><input type=\"password\" name = 'password' value='$password'></td>";
+echo "           <td><input type=\"password\" name = 'password' value='$password' required='required'></td>";
 echo "       </tr>";
 echo "       <tr>";
 echo "           <th>Full Name</th>";

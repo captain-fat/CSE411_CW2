@@ -4,7 +4,8 @@
         <table style="margin-left: 30%;width: 40%;border-width: 0;margin-bottom: 15px">
             <tr>
                 <td>Sport</td>
-                <td><input type="text" name="sport" placeholder="basketball" required="required"></td>
+                <td><input type="text" name="sport" placeholder="basketball"
+                           onkeyup="value=value.replace(/[^0-9a-zA-Z_]/g,'')" required="required"></td>
             </tr>
             <tr>
                 <td>Duration</td>

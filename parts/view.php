@@ -70,7 +70,7 @@ function my_filter($mysql, $keyword, $type)
 
 echo "<div style=\"border: solid;text-align: center;margin-top:5%;padding-left: 2%;padding-right: 2%; padding-top: 2%; padding-bottom: 2%\">";
 echo "<form style='text-align: right; margin-right: 5px' action = 'view.php' method = 'post'>";
-echo "<input style='text-align: right; margin-right: 5px' type='text' name='type'>";
+echo "Find by <input style='text-align: right; margin-right: 5px; width: 80px' type='text' name='type'>";
 echo "<select style='text-align: right; margin-right: 5px' name='filter' id = 'filter'>";
 echo "<option name = 'user' value = 'user'>User</option>";
 echo "<option name = 'sport' value = 'sport'>Sport</option>";
